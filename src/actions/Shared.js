@@ -10,7 +10,7 @@ export function handlePageLoadData() {
     return getInitialData().then(({ users, tweets }) => {
       dispatch(receivedUsers(users));
       dispatch(receivedTweets(tweets));
-      dispatch(setAuthUserID());
+      dispatch(setAuthUserID(AUTH_USER));
     });
   };
 }
