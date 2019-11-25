@@ -1,4 +1,4 @@
-#tweet Project
+# Tweet Project
 
 This repo is a code-along udacity practice , just exprimenting thing with structure way
 
