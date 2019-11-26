@@ -1,8 +1,8 @@
 export const SET_AUTH_USERID = "SET_AUTH_USERID";
 
-export function setAuthUserID(userID) {
+export function setAuthUserID(id) {
   return {
     type: SET_AUTH_USERID,
-    userID
+    id
   };
 }
