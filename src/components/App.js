@@ -2,13 +2,19 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { handlePageLoadData } from "../actions/Shared";
 import DashBoard from "./DashBoard";
+import LoadingBar from "react-redux-loading";
 
 class App extends Component {
   componentDidMount() {
     this.props.dispatch(handlePageLoadData());
   }
   render() {
-    return <div>{this.props.loading === true ? null : <DashBoard />}</div>;
+    return (
+      <div>
+        <LoadingBar />
+        {this.props.loading === true ? null : <DashBoard />}
+      </div>
+    );
   }
 }
 
