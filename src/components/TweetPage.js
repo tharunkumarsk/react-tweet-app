@@ -23,7 +23,7 @@ class TweetPage extends Component {
   }
 }
 
-function mapStateToProps({ authedUser, tweets, users }, props) {
+function mapStateToProps({ authUser, tweets, users }, props) {
   const { id } = props.match.params;
 
   return {

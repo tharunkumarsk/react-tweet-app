@@ -11,11 +11,11 @@ export function receivedTweets(tweets) {
     tweets
   };
 }
-function toggleTweet({ id, authedUser, hasLiked }) {
+function toggleTweet({ id, authUser, hasLiked }) {
   return {
     type: TOGGLE_TWEET,
     id,
-    authedUser,
+    authUser,
     hasLiked
   };
 }
@@ -41,13 +41,13 @@ function addTweet(tweet) {
 
 export function handleAddTweet(text, replyingTo) {
   return (dispatch, getState) => {
-    const { authedUser } = getState();
+    const { authUser } = getState();
 
     dispatch(showLoading());
 
     return saveTweet({
       text,
-      author: authedUser,
+      author: authUser,
       replyingTo
     })
       .then(tweet => dispatch(addTweet(tweet)))

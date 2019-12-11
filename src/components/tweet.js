@@ -10,13 +10,13 @@ class Tweet extends Component {
   handleLike = e => {
     e.preventDefault();
 
-    const { dispatch, tweet, authedUser } = this.props;
+    const { dispatch, tweet, authUser } = this.props;
 
     dispatch(
       handleToggleTweet({
         id: tweet.id,
         hasLiked: tweet.hasLiked,
-        authedUser
+        authUser
       })
     );
   };
@@ -76,13 +76,13 @@ class Tweet extends Component {
   }
 }
 
-function mapStateToProps({ authedUser, users, tweets }, { id }) {
+function mapStateToProps({ authUser, users, tweets }, { id }) {
   const tweet = tweets[id];
   const parentTweet = tweet ? tweets[tweet.replyingTo] : null;
   return {
-    authedUser,
+    authUser,
     tweet: tweet
-      ? formatTweet(tweet, users[tweet.author], authedUser, parentTweet)
+      ? formatTweet(tweet, users[tweet.author], authUser, parentTweet)
       : null
   };
 }
